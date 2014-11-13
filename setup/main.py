@@ -105,12 +105,12 @@ class Setup(object):
         values = dict(self.__config.get_values("panel"))
 
         # lookup table orientation
-        self.__combobox_lookup_table_orientation = self.__builder.get_object(
-                "combobox_lookup_table_orientation")
-        self.__combobox_lookup_table_orientation.set_active(
-                values.get("lookup_table_orientation", 0))
-        self.__combobox_lookup_table_orientation.connect("changed",
-                self.__combobox_lookup_table_orientation_changed_cb)
+        #self.__combobox_lookup_table_orientation = self.__builder.get_object(
+        #        "combobox_lookup_table_orientation")
+        #self.__combobox_lookup_table_orientation.set_active(
+        #        values.get("lookup_table_orientation", 0))
+        #self.__combobox_lookup_table_orientation.connect("changed",
+        #        self.__combobox_lookup_table_orientation_changed_cb)
 
         # auto hide
         self.__combobox_panel_show = self.__builder.get_object(
