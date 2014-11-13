@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gconfschemafile>
+  <schemalist>
+    <schema>
+      <key>/schemas/desktop/ibus/general/preload_engine_mode</key>
+      <applyto>/desktop/ibus/general/preload_engine_mode</applyto>
+      <owner>ibus</owner>
+      <type>int</type>
+      <default>0</default>
+      <locale name="C">
+        <short>Preload engine mode</short>
+            <long>Preload engines are loaded with this mode.
+                  0 = user customized engines.
+                  1 = language related engines.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/preload_engines_inited</key>
+      <applyto>/desktop/ibus/general/preload_engines_inited</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>The key preload_engines is initialized</short>
+            <long>The key preload_engines is initialized</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/preload_engines</key>
+      <applyto>/desktop/ibus/general/preload_engines</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <default>[]</default>
+      <list_type>string</list_type>
+      <locale name="C">
+        <short>Preload engines</short>
+	    <long>Preload engines during ibus starts up</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/engines_order</key>
+      <applyto>/desktop/ibus/general/engines_order</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <default>[]</default>
+      <list_type>string</list_type>
+      <locale name="C">
+        <short>Engines order</short>
+            <long>Saved engines order in input method list</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/switcher-delay-time</key>
+      <applyto>/desktop/ibus/general/switcher-delay-time</applyto>
+      <owner>ibus</owner>
+      <type>int</type>
+      <default>400</default>
+      <locale name="C">
+        <short>Popup delay milliseconds for IME switcher window</short>
+            <long>Set popup delay milliseconds to show IME switcher window.
+                  The default is 400.
+                  0 = Show the window immediately.
+                  0 &lt; Delay milliseconds.
+                  0 &gt; Do not show the window and switch prev/next engines.
+            </long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/version</key>
+      <applyto>/desktop/ibus/general/version</applyto>
+      <owner>ibus</owner>
+      <type>string</type>
+      <default></default>
+      <locale name="C">
+        <short>Saved version number</short>
+            <long>The saved version number will be used to check the
+                  difference between the version of the previous installed
+                  ibus and one of the current ibus.
+            </long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/use_xmodmap</key>
+      <applyto>/desktop/ibus/general/use_xmodmap</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>true</default>
+      <locale name="C">
+        <short>Use xmodmap</short>
+           <long>Run xmodmap if .xmodmap/.Xmodmap exists.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkb_latin_layouts</key>
+      <applyto>/desktop/ibus/general/xkb_latin_layouts</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[ara,bg,cz,dev,gr,gur,in,jp(kana),mal,mkd,ru,ua]</default>
+      <locale name="C">
+        <short>Latin layout which have no ASCII</short>
+           <long>us layout is appended to the latin layouts. variant is not needed.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/load_xkb_layouts</key>
+      <applyto>/desktop/ibus/general/load_xkb_layouts</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[us,us(chr),us(dvorak),ad,al,am,ara,az,ba,bd,be,bg,br,bt,by,
+de,dk,ca,ch,cn(tib),cz,ee,epo,es,et,fi,fo,fr,
+gb,ge,ge(dsb),ge(ru),ge(os),gh,gh(akan),gh(ewe),gh(fula),gh(ga),gh(hausa),
+gn,gr,hu,hr,ie,ie(CloGaelach),il,
+in,
+in(tel),in(bolnagri),iq,iq(ku),ir,ir(ku),is,it,jp,
+kg,kh,kz,la,latam,lk,lk(tam_unicode),lt,lv,ma,ma(tifinagh),mal,mao,
+me,mk,mm,mt,mv,ng,ng(hausa),ng,ng(igbo),ng(yoruba),nl,no,no(smi),np,
+pk,pl,pl(csb),pt,ro,rs,ru,ru(cv),ru(kom),ru(sah),ru(tt),ru(xal),
+se,si,sk,sy,sy(ku),th,tj,tr,ua,uz,vn
+]</default>
+      <locale name="C">
+        <short>XKB layout list which is shown on ibus-setup</short>
+           <long>XKB layout list which is shown on ibus-setup.
+                 The format is "layout" or "layout(variant)".</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/trigger</key>
+      <applyto>/desktop/ibus/general/hotkey/trigger</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[Control+space,Zenkaku_Hankaku,Alt+Kanji,Alt+grave,Hangul,Alt+Release+Alt_R]</default>
+      <locale name="C">
+        <short>Trigger shortcut keys</short>
+          <long>The shortcut keys for turning input method on or off</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/triggers</key>
+      <applyto>/desktop/ibus/general/hotkey/triggers</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[&lt;Super&gt;space]</default>
+      <locale name="C">
+        <short>Trigger shortcut keys for gtk_accelerator_parse</short>
+          <long>The shortcut keys for turning input method on or off</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/triggers-no-modifiers</key>
+      <applyto>/desktop/ibus/general/hotkey/triggers-no-modifiers</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[]</default>
+      <locale name="C">
+        <short>Trigger shortcut keys without modifier keys</short>
+          <long>Trigger shortcut keys without modifier keys.
+                The list is used by ibus-gjs.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/enable_unconditional</key>
+      <applyto>/desktop/ibus/general/hotkey/enable_unconditional</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[]</default>
+      <locale name="C">
+        <short>Enable shortcut keys</short>
+	    <long>The shortcut keys for turning input method on</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/disable_unconditional</key>
+      <applyto>/desktop/ibus/general/hotkey/disable_unconditional</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[]</default>
+      <locale name="C">
+        <short>Disable shortcut keys</short>
+	    <long>The shortcut keys for turning input method off</long>
+      </locale>
+    </schema>
+    <!-- For backward compatibility -->
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/next_engine</key>
+      <applyto>/desktop/ibus/general/hotkey/next_engine</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[Alt+Shift_L]</default>
+      <locale name="C">
+        <short>Next engine shortcut keys</short>
+	    <long>The shortcut keys for switching to the next input method in the list</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/next_engine_in_menu</key>
+      <applyto>/desktop/ibus/general/hotkey/next_engine_in_menu</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[Alt+Shift_L]</default>
+      <locale name="C">
+        <short>Next engine shortcut keys</short>
+	    <long>The shortcut keys for switching to the next input method in the list</long>
+      </locale>
+    </schema>
+
+    <!-- For backward compatibility -->
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/prev_engine</key>
+      <applyto>/desktop/ibus/general/hotkey/prev_engine</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[]</default>
+      <locale name="C">
+        <short>Prev engine shortcut keys</short>
+	    <long>The shortcut keys for switching to the previous input method</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/desktop/ibus/general/hotkey/previous_engine</key>
+      <applyto>/desktop/ibus/general/hotkey/previous_engine</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[]</default>
+      <locale name="C">
+        <short>Prev engine shortcut keys</short>
+	    <long>The shortcut keys for switching to the previous input method</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/panel/show</key>
+      <applyto>/desktop/ibus/panel/show</applyto>
+      <owner>ibus</owner>
+      <type>int</type>
+      <default>0</default>
+      <locale name="C">
+        <short>Auto hide</short>
+	    <long>The behavior of language panel. 0 = Embedded in menu, 1 = Auto hide, 2 = Always show</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/panel/x</key>
+      <applyto>/desktop/ibus/panel/x</applyto>
+      <owner>ibus</owner>
+      <type>int</type>
+      <default>-1</default>
+      <locale name="C">
+        <short>Language panel position</short>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/panel/y</key>
+      <applyto>/desktop/ibus/panel/y</applyto>
+      <owner>ibus</owner>
+      <type>int</type>
+      <default>-1</default>
+      <locale name="C">
+        <short>Language panel position</short>
+      </locale>
+    </schema>
+    <!--
+    <schema>
+      <key>/schemas/desktop/ibus/panel/position</key>
+      <applyto>/desktop/ibus/panel/position</applyto>
+      <owner>ibus</owner>
+      <type>int</type>
+      <default>3</default>
+      <locale name="C">
+        <short>Language panel position</short>
+	    <long>The position of the language panel. 0 = Top left corner, 1 = Top right corner, 2 = Bottom left corner, 3 = Bottom right corner, 4 = Custom</long>
+      </locale>
+    </schema>
+    -->
+    <schema>
+      <key>/schemas/desktop/ibus/panel/lookup_table_orientation</key>
+      <applyto>/desktop/ibus/panel/lookup_table_orientation</applyto>
+      <owner>ibus</owner>
+      <type>int</type>
+      <default>1</default>
+      <locale name="C">
+        <short>Orientation of lookup table</short>
+	    <long>Orientation of lookup table. 0 = Horizontal, 1 = Vertical</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/panel/show_icon_on_systray</key>
+      <applyto>/desktop/ibus/panel/show_icon_on_systray</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>true</default>
+      <locale name="C">
+        <short>Show icon on system tray</short>
+	    <long>Show icon on system tray</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/panel/show_im_name</key>
+      <applyto>/desktop/ibus/panel/show_im_name</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Show input method name</short>
+	    <long>Show input method name on language bar</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/use_system_keyboard_layout</key>
+      <applyto>/desktop/ibus/general/use_system_keyboard_layout</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Use system keyboard layout</short>
+	    <long>Use system keyboard (XKB) layout</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/panel/use_custom_font</key>
+      <applyto>/desktop/ibus/panel/use_custom_font</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Use custom font</short>
+	    <long>Use custom font name for language panel</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/group_list</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/group_list</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[west_europe,south_europe,east_europe,north_europe,west_asia,center_asia,east_asia,india,australia]</default>
+      <locale name="C">
+        <short>List of system keyboard layout groups on ibus-setup</short>
+           <long>The group list is used not to show all the system
+                  keyboard layouts by default. The list item will be
+                  appended at the end of gconf key. e.g.
+                  .../xkblayoutconfig/item1</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/west_europe</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/west_europe</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[ad,be,br,de,ca,ch,cz,es,fr,gn,hu,ie,ie(CloGaelach),it,latam,nl,pt,si,sk]</default>
+      -->
+      <default>[ca,cs,de,en,es,fr,gd,hu,it,nl,pt,sk,sl]</default>
+      <locale name="C">
+        <short>List of European languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/south_europe</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/south_europe</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[al,ba,bg,gr,me,mk,mt,ro,rs]</default>
+      -->
+      <default>[bg,bs,el,mk,mt,ro,sq,sr]</default>
+      <locale name="C">
+        <short>List of European languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/east_europe</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/east_europe</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[by,ee,epo,ge,ge(dsb),ge(ru),ge(os),hr,kg,kz,lt,lv,pl,pl(csb),ru,ru(cv),ru(kom),ru(sah),ru(tt),ru(xal),ua,uz]</default>
+      -->
+      <default>[be,csb,cv,et,ka,kk,ky,lt,lv,pl,ru,tt,uk,uz]</default>
+      <locale name="C">
+        <short>List of European languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/north_europe</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/north_europe</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[dk,fi,fo,is,no,no(smi),se]</default>
+      -->
+      <default>[da,fi,fo,is,no,se,sv]</default>
+      <locale name="C">
+        <short>List of European languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/west_asia</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/west_asia</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[am,ara,az,et,gh,gh(akan),gh(ewe),gh(fula),gh(ga),gh(hausa),il,iq,iq(ku),ir,ir(ku),ma,ma(tifinagh),ng,ng(hausa),ng,ng(igbo),ng(yoruba),sy,sy(ku),tj,tr]</default>
+      -->
+      <default>[am,ar,az,ber,fa,ha,he,hy,ig,ku,tg,tr,yo]</default>
+      <locale name="C">
+        <short>List of Asian languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/center_asia</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/center_asia</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[cn(tib)]</default>
+      -->
+      <default>[bo,zh]</default>
+      <locale name="C">
+        <short>List of Asian languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/east_asia</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/east_asia</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[bt,kh,la,mal,mm,th,vn]</default>
+      -->
+      <default>[dz,km,lo,my,th,vi]</default>
+      <locale name="C">
+        <short>List of Asian languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/india</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/india</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[bd,in,in(ben),in(guj),in(guru),in(jhelum),in(kan),in(mal),in(ori),in(tam),in(tel),in(urd-phonetic),in(bolnagri),lk,lk(tam_unicode),mv,np,pk]</default>
+      -->
+      <default>[bn,dv,gu,hi,kn,ml,ne,or,pa,si,ta,te,ur]</default>
+      <locale name="C">
+        <short>List of Asian languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/xkblayoutconfig/australia</key>
+      <applyto>/desktop/ibus/general/xkblayoutconfig/australia</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <!--
+      <default>[mao]</default>
+      -->
+      <default>[mi]</default>
+      <locale name="C">
+        <short>List of Asian languages on ibus-setup</short>
+           <long>ibus-setup shows the languages only in input method list
+                  when you run ibus-setup on one of the languages.
+                  Other languages are hidden under an extended button.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/panel/custom_font</key>
+      <applyto>/desktop/ibus/panel/custom_font</applyto>
+      <owner>ibus</owner>
+      <type>string</type>
+      <default>Sans 10</default>
+      <locale name="C">
+        <short>Custom font</short>
+	    <long>Custom font name for language panel</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/embed_preedit_text</key>
+      <applyto>/desktop/ibus/general/embed_preedit_text</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>true</default>
+      <locale name="C">
+        <short>Embed Preedit Text</short>
+	    <long>Embed Preedit Text in Application Window</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/ibus/general/use_global_engine</key>
+      <applyto>/desktop/ibus/general/use_global_engine</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Use global input method</short>
+	    <long>Share the same input method among all applications</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/desktop/ibus/general/enable_by_default</key>
+      <applyto>/desktop/ibus/general/enable_by_default</applyto>
+      <owner>ibus</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+        <short>Enable input method by default</short>
+	    <long>Enable input method by default when the application gets input
+            focus</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/desktop/ibus/general/dconf_preserve_name_prefixes</key>
+      <applyto>/desktop/ibus/general/dconf_preserve_name_prefixes</applyto>
+      <owner>ibus</owner>
+      <type>list</type>
+      <default>[/desktop/ibus/engine/pinyin,/desktop/ibus/engine/bopomofo,/desktop/ibus/engine/hangul]</default>
+      <list_type>string</list_type>
+      <locale name="C">
+        <short>DConf preserve name prefixes</short>
+	    <long>Prefixes of DConf keys to stop name conversion</long>
+      </locale>
+    </schema>
+  </schemalist>
+</gconfschemafile>
