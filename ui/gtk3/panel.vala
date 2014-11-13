@@ -1074,10 +1074,11 @@ class Panel : IBus.PanelService {
 
         // Append IMEs
         foreach (var engine in m_engines) {
-            var language = engine.get_language();
+            //var language = engine.get_language();
             var longname = engine.get_longname();
-            var item = new Gtk.ImageMenuItem.with_label(
-                "%s - %s".printf (IBus.get_language_name(language), longname));
+            //var item = new Gtk.ImageMenuItem.with_label(
+            //    "%s - %s".printf (IBus.get_language_name(language), longname));
+            var item = new Gtk.ImageMenuItem.with_label(longname);
             if (engine.get_icon() != "") {
                 var icon = new IconWidget(engine.get_icon(), Gtk.IconSize.MENU);
                  item.set_image(icon);

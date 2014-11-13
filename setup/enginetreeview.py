@@ -123,9 +123,10 @@ class EngineTreeView(Gtk.TreeView):
     def __name_cell_data_cb(self, celllayout, renderer, model, it, data):
         engine = self.__model.get_value(it, 0)
         renderer.set_property("sensitive", True)
-        language = IBus.get_language_name(engine.get_language())
-        renderer.set_property("text",
-                "%s - %s" % (language, engine.get_longname()))
+        #language = IBus.get_language_name(engine.get_language())
+        #renderer.set_property("text",
+        #        "%s - %s" % (language, engine.get_longname()))
+        renderer.set_property("text",engine.get_longname())
         if self.__model.get_path(it).get_indices()[0] == 0:
             # default engine
             renderer.set_property("weight", Pango.Weight.BOLD)

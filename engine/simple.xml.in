@@ -15,10 +15,88 @@
 			<license>GPL</license>
 			<author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
 			<layout>us</layout>
-			<longname>English (US)</longname>
+			<longname>英语</longname>
 			<description>English (US)</description>
                         <icon>/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png</icon>
 			<rank>99</rank>
 		</engine>
+                <engine>
+                        <name>xkb:es::spa</name>
+                        <language>spa</language>
+                        <license>GPL</license>
+                        <author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+                        <layout>es</layout>
+                        <longname>西班牙语</longname>
+                        <description>Spanish</description>
+                        <icon>/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png</icon>
+                        <rank>99</rank>
+                </engine>
+                <engine>
+                        <name>xkb:fr::fra</name>
+                        <language>fra</language>
+                        <license>GPL</license>
+                        <author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+                        <layout>fr</layout>
+                        <longname>法语（法国）</longname>
+                        <description>French</description>
+                        <icon>/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png</icon>
+                        <rank>99</rank>
+                </engine>
+                <engine>
+                        <name>xkb:ca::fra</name>
+                        <language>fra</language>
+                        <license>GPL</license>
+                        <author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+                        <layout>ca</layout>
+                        <longname>法语 (加拿大)</longname>
+                        <description>French (Canada)</description>
+                        <icon>/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png</icon>
+                        <rank>99</rank>
+                </engine>
+                <engine>
+                        <name>xkb:be::fra</name>
+                        <language>fra</language>
+                        <license>GPL</license>
+                        <author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+                        <layout>be</layout>
+                        <longname>法语（比利时）</longname>
+                        <description>Belgian</description>
+                        <icon>/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png</icon>
+                        <rank>99</rank>
+                </engine>
+                <engine>
+                        <name>xkb:ch:fr:fra</name>
+                        <language>fra</language>
+                        <license>GPL</license>
+                        <author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+                        <layout>ch</layout>
+                        <layout_variant>fr</layout_variant>
+                        <longname>法语 (瑞士)</longname>
+                        <description>French (Switzerland)</description>
+                        <icon>/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png</icon>
+                        <rank>99</rank>
+                </engine>
+                <engine>
+                        <name>xkb:ru::rus</name>
+                        <language>rus</language>
+                        <license>GPL</license>
+                        <author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+                        <layout>ru</layout>
+                        <longname>俄语</longname>
+                        <description>Russian</description>
+                        <icon>/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png</icon>
+                        <rank>99</rank>
+                </engine>
+                <engine>
+                        <name>xkb:ara::ara</name>
+                        <language>ara</language>
+                        <license>GPL</license>
+                        <author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+                        <layout>ara</layout>
+                        <longname>阿拉伯语</longname>
+                        <description>Arabic</description>
+                        <icon>/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png</icon>
+                        <rank>99</rank>
+                </engine>
 	</engines>
 </component>
