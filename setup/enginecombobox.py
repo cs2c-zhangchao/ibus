@@ -123,18 +123,22 @@ class EngineComboBox(Gtk.ComboBox):
             keys.remove(IBus.get_language_name("Other"))
             keys += [IBus.get_language_name("Other")]
         for l in keys:
-            iter1 = model.append(None)
-            model.set(iter1, 0, l)
+            #don't append lang
+            #iter1 = model.append(None) #iter1, 1level
+            #model.set(iter1, 0, l) 
             def cmp_engine(a, b):
                 if a.get_rank() == b.get_rank():
                     return locale.strcoll(a.get_longname(), b.get_longname())
                 return int(b.get_rank() - a.get_rank())
             langs[l].sort(cmp_engine)
             for e in langs[l]:
-                iter2 = model.append(iter1)
-                model.set(iter2, 0, e)
+                #iter2 = model.append(iter1) #iter2: 2 level
+                #model.set(iter2, 0, e)
+                iter1 = model.append(None) #iter2: 2 level
+                model.set(iter1, 0, e)
 
     def set_engines(self, engines):
+        #model
         self.__model = Gtk.TreeStore(object)
 
         iter1 = self.__model.append(None)
@@ -156,20 +160,32 @@ class EngineComboBox(Gtk.ComboBox):
 
         self.__model_append_langs(self.__model, lang, True)
         iter1 = self.__model.append(None)
-        self.__model.set(iter1, 0, -1)
+        #self.__model.set(iter1, 0, -1)
 
+        #all model
         self.__all_model = Gtk.TreeStore(object)
-        iter1 = self.__all_model.append(None)
-        self.__all_model.set(iter1, 0, 0)
+        #it will add a column
+        #iter1 = self.__all_model.append(None)
+        #self.__all_model.set(iter1, 0, 0)
         self.__model_append_langs(self.__all_model, lang, False)
-        iter1 = self.__all_model.append(None)
-        self.__all_model.set(iter1, 0, -1)
+        #remove it ,it will add a column
+        #iter1 = self.__all_model.append(None)
+        #self.__all_model.set(iter1, 0, -1)
+        #ok, it will add other region input method
         self.__model_append_langs(self.__all_model, sub_lang, False)
 
         self.__toggle_sub_lang()
 
     def __toggle_sub_lang(self):
         self.set_model(None)
+
+        #echo add start
+        #select which model to show, all_model or model
+        self.set_model(self.__all_model)
+        self.set_active(0)
+        return 
+        #echo add end
+
         if self.__show_sub_lang:
             self.set_model(self.__all_model)
         else:
@@ -179,16 +195,22 @@ class EngineComboBox(Gtk.ComboBox):
     def __icon_cell_data_cb(self, celllayout, renderer, model, iter, data):
         model = self.get_model()
         engine = model.get_value(iter, 0)
+        if engine == None :
+            return
 
+        #1 level
         if isinstance(engine, str) or isinstance (engine, unicode):
+            return
             renderer.set_property("visible", False)
             renderer.set_property("sensitive", False)
+        #1 level and top level
         elif isinstance(engine, int):
             if engine == 0:
                 renderer.set_property("visible", False)
                 renderer.set_property("sensitive", False)
                 renderer.set_property("pixbuf", None)
             elif engine < 0:
+                return 
                 if not self.__show_sub_lang:
                     pixbuf = load_icon("go-bottom", Gtk.IconSize.LARGE_TOOLBAR)
                 else:
@@ -203,6 +225,7 @@ class EngineComboBox(Gtk.ComboBox):
                 renderer.set_property("visible", True)
                 renderer.set_property("sensitive", True)
                 renderer.set_property("pixbuf", pixbuf)
+        #2 level
         else:
             renderer.set_property("visible", True)
             renderer.set_property("sensitive", True)
@@ -212,22 +235,28 @@ class EngineComboBox(Gtk.ComboBox):
     def __name_cell_data_cb(self, celllayout, renderer, model, iter, data):
         model = self.get_model()
         engine = model.get_value(iter, 0)
+        if engine == None :
+            return
 
+        #1 level 
         if isinstance (engine, str) or isinstance (engine, unicode):
             renderer.set_property("sensitive", False)
             renderer.set_property("text", engine)
             renderer.set_property("weight", Pango.Weight.NORMAL)
+        #1 level and top level
         elif isinstance(engine, int):
             renderer.set_property("sensitive", True)
             if engine == 0:
                 renderer.set_property("text", _("Select an input method"))
                 renderer.set_property("weight", Pango.Weight.NORMAL)
             elif engine < 0:
+                #here
                 if not self.__show_sub_lang:
                     renderer.set_property("text", _("Show all input methods"))
                 else:
                     renderer.set_property("text", _("Show only input methods for your region"))
                 renderer.set_property("weight", Pango.Weight.BOLD)
+        # 2 level
         else:
             renderer.set_property("sensitive", True)
             renderer.set_property("text", engine.get_longname())
@@ -237,11 +266,13 @@ class EngineComboBox(Gtk.ComboBox):
     def __notify_active_cb(self, combobox, property):
         self.notify("active-engine")
 
+    #select a item
     def do_get_property(self, property):
         if property.name == "active-engine":
             i = self.get_active()
-            if i == 0 or i == -1:
-                return None
+            #remove it , otherwise the first item won't be add
+            #if i == 0 or i == -1:
+            #    return None
             iter = self.get_active_iter()
             model = self.get_model()
             if model[iter][0] == -1:

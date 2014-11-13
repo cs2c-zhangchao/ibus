@@ -89,7 +89,7 @@ class Setup(object):
         if variant != None:
             shortcuts = variant.unpack()
         else:
-            shortcuts =  ['<Super>space']
+            shortcuts =  ['<Control>space']
 
         button = self.__builder.get_object("button_%s" % label)
         entry = self.__builder.get_object("entry_%s" % label)
@@ -257,7 +257,7 @@ class Setup(object):
         self.__config = self.__bus.get_config()
         self.__config.connect("value-changed", self.__config_value_changed_cb)
 
-        self.__init_hotkey()
+        #self.__init_hotkey()
         self.__init_panel()
         self.__init_general()
 

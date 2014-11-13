@@ -56,7 +56,7 @@ class Panel : IBus.PanelService {
     private int m_fallback_lock_id = -1;
     private bool m_changed_xkb_option = false;
     private GLib.Timer m_changed_layout_timer;
-    private const string ACCELERATOR_SWITCH_IME_FOREWARD = "<Super>space";
+    private const string ACCELERATOR_SWITCH_IME_FOREWARD = "<Control>space";
 
     private GLib.List<Keybinding> m_keybindings = new GLib.List<Keybinding>();
 
@@ -74,14 +74,15 @@ class Panel : IBus.PanelService {
         m_status_icon.set_title("IBus Panel");
         m_status_icon.popup_menu.connect(status_icon_popup_menu_cb);
         m_status_icon.activate.connect(status_icon_activate_cb);
-        m_status_icon.set_from_icon_name("ibus-keyboard");
+        //m_status_icon.set_from_icon_name("ibus-keyboard");
+        m_status_icon.set_from_file("/usr/share/icons/hicolor/22x22/apps/ibus-keyboard.png");
 
         m_candidate_panel = new CandidatePanel();
         m_candidate_panel.page_up.connect((w) => this.page_up());
         m_candidate_panel.page_down.connect((w) => this.page_down());
 
         m_switcher = new Switcher();
-        // The initial shortcut is "<Super>space"
+        // The initial shortcut is "<Control>space"
         bind_switch_shortcut(null);
 
         if (m_switcher_delay_time >= 0) {
@@ -361,7 +362,7 @@ class Panel : IBus.PanelService {
 
         var notification = new Notify.Notification(
                 _("IBus Update"),
-                _("Super+space is now the default hotkey."),
+                _("Control+space is now the default hotkey."),
                 "ibus");
         notification.set_timeout(30 * 1000);
         notification.set_category("hotkey");
@@ -372,7 +373,7 @@ class Panel : IBus.PanelService {
             warning ("Notification is failed for IBus 1.5.3: %s", e.message);
         }
 #else
-        warning(_("Super+space is now the default hotkey."));
+        warning(_("Control+space is now the default hotkey."));
 #endif
     }
 
@@ -1049,9 +1050,9 @@ class Panel : IBus.PanelService {
             item.activate.connect((i) => m_bus.exit(true));
             m_sys_menu.append(item);
 
-            item = new Gtk.ImageMenuItem.from_stock(Gtk.Stock.QUIT, null);
-            item.activate.connect((i) => m_bus.exit(false));
-            m_sys_menu.append(item);
+            //item = new Gtk.ImageMenuItem.from_stock(Gtk.Stock.QUIT, null);
+            //item.activate.connect((i) => m_bus.exit(false));
+            //m_sys_menu.append(item);
 
             m_sys_menu.show_all();
         }

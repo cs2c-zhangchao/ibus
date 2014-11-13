@@ -23,7 +23,8 @@
 class Switcher : Gtk.Window {
     public extern const bool USE_SYMBOL_ICON;
     private const int DEFAULT_FONT_SIZE = 16;
-    private const int DESC_LABEL_MAX_LEN = 20;
+    //private const int DESC_LABEL_MAX_LEN = 20;
+    private const int DESC_LABEL_MAX_LEN = 40;
 
     private class IBusEngineButton : Gtk.Button {
         public IBusEngineButton(IBus.EngineDesc engine) {
@@ -36,7 +37,8 @@ class Switcher : Gtk.Window {
 
             if (!USE_SYMBOL_ICON) {
                 IconWidget icon = new IconWidget(engine.get_icon(),
-                                                 Gtk.IconSize.DIALOG);
+                                                 Gtk.IconSize.DND);
+                                                /* Gtk.IconSize.DIALOG);*/
                 align.add(icon);
             } else {
                 var language = engine.get_language();
@@ -95,7 +97,7 @@ class Switcher : Gtk.Window {
         GLib.Object(
             type : Gtk.WindowType.POPUP,
             events : Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK,
-            window_position : Gtk.WindowPosition.CENTER,
+            window_position : Gtk.WindowPosition.CENTER_ALWAYS,
             accept_focus : true,
             decorated : false,
             modal : true,

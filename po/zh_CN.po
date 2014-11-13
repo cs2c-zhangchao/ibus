@@ -549,3 +549,21 @@ msgstr "黄鹏 <shawn.p.huang@gmail.com>\nFedora 简体中文组 <trans-zh_cn@li
 #: ../ui/gtk3/panel.vala:402
 msgid "Restart"
 msgstr "重新启动"
+
+
+msgid "Sogou - Chinese or English:"
+msgstr "Sogou输入法 -中英文切换:"
+
+msgid "Sogou - Full or Half:"
+msgstr "Sogou输入法 -全半角切换:"
+
+msgid "Sogou - Chinese or English punctuation:"
+msgstr "Sogou输入法 -中英标点切换:"
+
+msgid "Sogou - Simple or Traditional Chinese:"
+msgstr "Sogou输入法 -简繁体切换:"
+
+
+msgid "Keyboard Shortcuts"
+msgstr "快捷键"
+
